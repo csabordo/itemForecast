@@ -236,3 +236,88 @@ tr:hover {
 .text-warn { 
   color: #fd7e14; 
 }
+
+/* App.css (Responsive Updates) */
+
+/* ... (All your existing styles remain the same) ... */
+
+/* --- Responsive Adjustments (Mobile/Tablet) --- */
+
+@media (max-width: 768px) {
+  /* Global adjustments */
+  .forecast-app {
+    padding: 15px; /* Slightly less padding on smaller screens */
+  }
+
+  /* Header adjustments */
+  .header {
+    flex-direction: column; /* Stack title and controls vertically */
+    align-items: flex-start; /* Align stacked items to the left */
+    gap: 15px; /* Space between title and controls */
+    padding: 15px;
+  }
+
+  .title h1 {
+    font-size: 22px; /* Slightly smaller title */
+  }
+
+  /* Controls/Buttons */
+  .controls {
+    width: 100%; /* Make controls take full width */
+    flex-direction: column; /* Stack buttons vertically for better tap targets */
+  }
+
+  .controls button {
+    width: 100%;
+    justify-content: center; /* Center button content */
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    /* Change the grid to 2 columns for tablets, and 1 column for very small phones */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* Table Container */
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stats Grid: Single column for small phones */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stat Card: Center align content for single-column layout */
+  .stat-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .stat-content .value {
+    font-size: 20px;
+  }
+
+  .stat-icon {
+    order: -1; /* Move icon to the top */
+    padding: 8px;
+  }
+
+  /* Table: Ensure the table itself is scrollable */
+  /* The parent div in App.js handles this with 'overflowX: auto' but let's ensure 'td' padding is reasonable. */
+  th, td {
+    padding: 10px 15px; /* Reduce padding to fit more content */
+    font-size: 13px; /* Slightly smaller text */
+  }
+  
+  /* Make the Product Name column stand out and potentially wrap */
+  td:first-child {
+    min-width: 150px;
+  }
+}

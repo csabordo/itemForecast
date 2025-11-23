@@ -227,4 +227,4 @@ function StatCard({ title, value, icon, isWarning = false, highlight = false }) 
       <div className="stat-icon">{icon}</div>
     </div>
   );
-}
+} 

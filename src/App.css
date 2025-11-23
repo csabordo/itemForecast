@@ -1,38 +1,238 @@
-.App {
-  text-align: center;
+/* App.css */
+
+/* Global reset or base styles if needed, 
+   though usually 'body' goes in index.css. 
+   Keeping here for self-containment as requested. */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.forecast-app { 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+  background: #f8f9fa; 
+  padding: 20px; 
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #212529;
 }
 
-.App-link {
-  color: #61dafb;
+.container { 
+  max-width: 1000px; 
+  margin: 0 auto; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Header & Controls */
+.header { 
+  background: white; 
+  padding: 20px; 
+  border-radius: 8px; 
+  border: 1px solid #dee2e6;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
+}
+
+.title h1 { 
+  margin: 0; 
+  font-size: 24px; 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.title p { 
+  margin: 5px 0 0; 
+  color: #6c757d; 
+  font-size: 14px; 
+}
+
+.controls { 
+  display: flex; 
+  gap: 10px; 
+}
+
+/* Buttons */
+button { 
+  padding: 10px 16px; 
+  border-radius: 6px; 
+  border: 1px solid #ced4da; 
+  background: white; 
+  cursor: pointer; 
+  font-weight: 500; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  transition: all 0.2s; 
+  font-size: 14px;
+}
+
+button:hover { 
+  background: #e9ecef; 
+}
+
+button:disabled { 
+  opacity: 0.6; 
+  cursor: not-allowed; 
+}
+
+button.primary { 
+  background: #0d6efd; 
+  color: white; 
+  border-color: #0d6efd; 
+}
+
+button.primary:hover { 
+  background: #0b5ed7; 
+}
+
+/* Stats Grid */
+.stats-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 15px; 
+  margin-bottom: 20px; 
+}
+
+.stat-card { 
+  background: white; 
+  padding: 15px; 
+  border-radius: 8px; 
+  border: 1px solid #dee2e6; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.stat-content h4 { 
+  margin: 0 0 5px; 
+  color: #6c757d; 
+  font-size: 11px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px; 
+}
+
+.stat-content .value { 
+  font-size: 24px; 
+  font-weight: bold; 
+  margin: 0; 
+}
+
+.stat-icon { 
+  font-size: 24px; 
+  background: #f8f9fa; 
+  padding: 10px; 
+  border-radius: 6px; 
+}
+
+/* Table */
+.table-container { 
+  background: white; 
+  border-radius: 8px; 
+  border: 1px solid #dee2e6; 
+  overflow: hidden; 
+}
+
+.table-header { 
+  padding: 15px 20px; 
+  border-bottom: 1px solid #dee2e6; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: white;
+}
+
+.table-header h3 { 
+  margin: 0; 
+  font-size: 16px; 
+  font-weight: 600; 
+}
+
+.badge-count { 
+  background: #e9ecef; 
+  padding: 4px 8px; 
+  border-radius: 4px; 
+  font-size: 12px; 
+  color: #495057; 
+}
+
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  text-align: left; 
+}
+
+th { 
+  background: #f8f9fa; 
+  padding: 12px 20px; 
+  font-weight: 600; 
+  color: #495057; 
+  font-size: 13px; 
+  border-bottom: 2px solid #dee2e6; 
+}
+
+td { 
+  padding: 12px 20px; 
+  border-bottom: 1px solid #dee2e6; 
+  font-size: 14px; 
+  vertical-align: middle;
+}
+
+tr:last-child td { 
+  border-bottom: none; 
+}
+
+tr:hover { 
+  background-color: #f8f9fa; 
+}
+
+/* Custom Status Badges */
+.status-badge { 
+  padding: 4px 10px; 
+  border-radius: 50px; 
+  font-size: 12px; 
+  font-weight: 600; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+}
+
+.status-badge.reorder { 
+  background: #fff3cd; 
+  color: #856404; 
+  border: 1px solid #ffeeba; 
+}
+
+.status-badge.healthy { 
+  background: #d1e7dd; 
+  color: #0f5132; 
+  border: 1px solid #badbcc; 
+}
+
+/* Inventory tags */
+.stock-tag {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.stock-tag.low { 
+  background: #f8d7da; 
+  color: #721c24; 
+}
+
+.stock-tag.ok { 
+  background: #e2e3e5; 
+  color: #383d41; 
+}
+
+.loading-text { 
+  font-style: italic; 
+  color: #adb5bd; 
+}
+
+.text-warn { 
+  color: #fd7e14; 
 }
